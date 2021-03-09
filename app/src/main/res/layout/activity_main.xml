@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tennisButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cricketButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:text="Tennis" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cricketButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tennisButton"
+        app:layout_constraintBottom_toBottomOf="@id/tennisButton"
+        app:layout_constraintStart_toEndOf="@id/tennisButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:text="Cricket" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rugbyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tennisButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/volleyballButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginTop="16dp"
+        android:text="Rugby" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/volleyballButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/rugbyButton"
+        app:layout_constraintBottom_toBottomOf="@id/rugbyButton"
+        app:layout_constraintStart_toEndOf="@id/rugbyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:text="Volleyball" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iconView"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toTopOf="@id/tennisButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/default_game_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
