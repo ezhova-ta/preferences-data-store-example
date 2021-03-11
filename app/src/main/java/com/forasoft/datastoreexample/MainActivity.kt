@@ -4,15 +4,25 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
+import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
+import androidx.datastore.migrations.SharedPreferencesMigration
+import androidx.datastore.preferences.SharedPreferencesMigration
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.preferencesOf
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.forasoft.datastoreexample.Game.*
+import com.forasoft.datastoreexample.GamesDataStoreManager.Companion.GAME_KEY
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
-val Context.gamesDataStore: DataStore<Preferences> by preferencesDataStore(name = "games_data_store")
+val Context.gamesDataStore: DataStore<Preferences> by preferencesDataStore(
+    name = "games_data_store",
+    corruptionHandler = ReplaceFileCorruptionHandler {
+        preferencesOf(GAME_KEY to TENNIS.text)
+    }
+)
 
 class MainActivity : AppCompatActivity() {
     private lateinit var gameDataStoreManager: GamesDataStoreManager
